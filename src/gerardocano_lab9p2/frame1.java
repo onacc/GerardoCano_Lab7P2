@@ -5,6 +5,7 @@
 package gerardocano_lab9p2;
 
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.DefaultListModel;
 
 /**
@@ -34,6 +35,13 @@ public class frame1 extends javax.swing.JFrame {
         popupmenu = new javax.swing.JPopupMenu();
         jmi_creararchivo = new javax.swing.JMenuItem();
         jmi_crearcarpeta = new javax.swing.JMenuItem();
+        jd_creararchivo = new javax.swing.JDialog();
+        comboextension = new javax.swing.JComboBox<>();
+        jtxt_nombre = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        js_tam = new javax.swing.JSpinner();
+        btn_creararchivo = new javax.swing.JButton();
+        btn_regresar = new javax.swing.JButton();
         jprogress2 = new javax.swing.JProgressBar();
         jProgressBar3 = new javax.swing.JProgressBar();
         jprogress1 = new javax.swing.JProgressBar();
@@ -43,10 +51,76 @@ public class frame1 extends javax.swing.JFrame {
         jl_archives = new javax.swing.JList<>();
 
         jmi_creararchivo.setText("Crear Archivo");
+        jmi_creararchivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_creararchivoActionPerformed(evt);
+            }
+        });
         popupmenu.add(jmi_creararchivo);
 
         jmi_crearcarpeta.setText("Crear Carpeta");
         popupmenu.add(jmi_crearcarpeta);
+
+        comboextension.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ".mp4", ".pdf", ".docx", ".zip", ".mp3" }));
+
+        jLabel1.setText("Crear Archivo");
+
+        js_tam.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 100.0d, 1.0d));
+
+        btn_creararchivo.setText("Crear Archivo");
+        btn_creararchivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_creararchivoActionPerformed(evt);
+            }
+        });
+
+        btn_regresar.setText("Regresar");
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_creararchivoLayout = new javax.swing.GroupLayout(jd_creararchivo.getContentPane());
+        jd_creararchivo.getContentPane().setLayout(jd_creararchivoLayout);
+        jd_creararchivoLayout.setHorizontalGroup(
+            jd_creararchivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_creararchivoLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(jd_creararchivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_creararchivoLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_creararchivoLayout.createSequentialGroup()
+                        .addGroup(jd_creararchivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jtxt_nombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_creararchivoLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btn_creararchivo))
+                            .addGroup(jd_creararchivoLayout.createSequentialGroup()
+                                .addComponent(btn_regresar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                                .addComponent(comboextension, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(js_tam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(19, 19, 19))))
+        );
+        jd_creararchivoLayout.setVerticalGroup(
+            jd_creararchivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_creararchivoLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_creararchivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_regresar)
+                    .addComponent(comboextension, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(js_tam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_creararchivo)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,8 +191,8 @@ public class frame1 extends javax.swing.JFrame {
         DefaultListModel modelo = (DefaultListModel) jl_archives.getModel();
         if(jl_dir.getSelectedIndex()==0){
             System.out.println(0);
-            for (int i = 0; i < carpetas.size(); i++) {
-                modelo.addElement(carpetas.get(i));
+            for (int i = 0; i < archivos.size(); i++) {
+                modelo.addElement(archivos.get(i));
             }
             
         }else if(jl_dir.getSelectedIndex()==1){
@@ -137,10 +211,31 @@ public class frame1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jl_dirKeyReleased
 
     private void jl_dirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_dirMousePressed
-        if(evt.isPopupTrigger()){
+        if(evt.getButton()==3){
             popupmenu.show(jl_dir, evt.getX(), evt.getY());
         }
     }//GEN-LAST:event_jl_dirMousePressed
+
+    private void jmi_creararchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_creararchivoActionPerformed
+        jd_creararchivo.pack();
+        jd_creararchivo.setModal(true);
+        
+        jd_creararchivo.setLocationRelativeTo(this);
+        jd_creararchivo.setVisible(true);
+    }//GEN-LAST:event_jmi_creararchivoActionPerformed
+
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+        jd_creararchivo.setVisible(false);
+        jtxt_nombre.setText("");
+    }//GEN-LAST:event_btn_regresarActionPerformed
+
+    private void btn_creararchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_creararchivoActionPerformed
+        String link="";
+        
+        archivos.add(new Archivo( randomstr(link), jtxt_nombre.getText(), (String) comboextension.getSelectedItem(), (double) js_tam.getValue()));
+        jd_creararchivo.setVisible(false);
+        jtxt_nombre.setText("");
+    }//GEN-LAST:event_btn_creararchivoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,18 +271,36 @@ public class frame1 extends javax.swing.JFrame {
             }
         });
     }
+     public String randomstr(String retorno){
+        char randomchar;
+        Random r = new Random();
+         for (int i = 0; i < 9; i++) {
+             randomchar = (char)(r.nextInt(26)+'a');
+            retorno+=randomchar;
+        }
+        return retorno;
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_creararchivo;
+    private javax.swing.JButton btn_regresar;
+    private javax.swing.JComboBox<String> comboextension;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JProgressBar jProgressBar3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JDialog jd_creararchivo;
     private javax.swing.JList<String> jl_archives;
     private javax.swing.JList<String> jl_dir;
     private javax.swing.JMenuItem jmi_creararchivo;
     private javax.swing.JMenuItem jmi_crearcarpeta;
     private javax.swing.JProgressBar jprogress1;
     private javax.swing.JProgressBar jprogress2;
+    private javax.swing.JSpinner js_tam;
+    private javax.swing.JTextField jtxt_nombre;
     private javax.swing.JPopupMenu popupmenu;
     // End of variables declaration//GEN-END:variables
 ArrayList<Carpeta> carpetas =new ArrayList();
+ArrayList<Archivo> archivos = new ArrayList();
+ArrayList<Carpeta> papelera = new ArrayList();
 }

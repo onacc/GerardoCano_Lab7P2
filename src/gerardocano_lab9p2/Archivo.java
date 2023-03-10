@@ -52,20 +52,12 @@ public class Archivo {
     public void setTam(double tam) {
         this.tam = tam;
     }
-    public String randomstr(){
-        String retorno="";
-        char randomchar;
-        Random r = new Random();
-         for (int i = 0; i < 9; i++) {
-             randomchar = (char)(r.nextInt(26)+'a');
-            retorno+=randomchar;
-        }
-        return retorno;
-    }
+   
+    
 
     @Override
     public String toString() {
-        return "Archivo{" + "link=" + link + ", nombre=" + nombre + ", extension=" + extension + ", tam=" + tam + '}';
+        return   nombre + "/" + extension + "" + link + "/" + tam +"MB";
     }
     
 }
