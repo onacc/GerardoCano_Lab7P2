@@ -61,7 +61,7 @@ public class Carpeta {
 
     @Override
     public String toString() {
-        return   nombre+"/"+link +"/" + archives + "/" + carpetas ;
+        return   nombre+"/"+link+"/"  + archives  + carpetas ;
     }
 
     public Carpeta(String nombre, String link) {

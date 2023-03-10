@@ -43,6 +43,7 @@ public class frame1 extends javax.swing.JFrame {
         js_tam = new javax.swing.JSpinner();
         btn_creararchivo = new javax.swing.JButton();
         btn_regresar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jd_crear_carpeta = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
         jtxt_nombrecarpeta = new javax.swing.JTextField();
@@ -50,6 +51,8 @@ public class frame1 extends javax.swing.JFrame {
         btn_crearcarpeta = new javax.swing.JButton();
         btn_regresar2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        popupadd = new javax.swing.JPopupMenu();
+        jmi_agregararchivo = new javax.swing.JMenuItem();
         jprogress2 = new javax.swing.JProgressBar();
         jProgressBar3 = new javax.swing.JProgressBar();
         jprogress1 = new javax.swing.JProgressBar();
@@ -94,6 +97,8 @@ public class frame1 extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Ingrese nombre del nuevo archivo");
+
         javax.swing.GroupLayout jd_creararchivoLayout = new javax.swing.GroupLayout(jd_creararchivo.getContentPane());
         jd_creararchivo.getContentPane().setLayout(jd_creararchivoLayout);
         jd_creararchivoLayout.setHorizontalGroup(
@@ -102,7 +107,7 @@ public class frame1 extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(jd_creararchivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_creararchivoLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(jLabel5)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_creararchivoLayout.createSequentialGroup()
                         .addGroup(jd_creararchivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -116,14 +121,18 @@ public class frame1 extends javax.swing.JFrame {
                                 .addComponent(comboextension, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(js_tam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(19, 19, 19))))
+                        .addGap(19, 19, 19))
+                    .addGroup(jd_creararchivoLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jd_creararchivoLayout.setVerticalGroup(
             jd_creararchivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_creararchivoLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addGap(5, 5, 5)
                 .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jd_creararchivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -158,20 +167,17 @@ public class frame1 extends javax.swing.JFrame {
         jd_crear_carpetaLayout.setHorizontalGroup(
             jd_crear_carpetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_crear_carpetaLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addGroup(jd_crear_carpetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_crear_carpetaLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel3))
-                    .addGroup(jd_crear_carpetaLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(jd_crear_carpetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jd_crear_carpetaLayout.createSequentialGroup()
-                                .addComponent(btn_regresar2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_crearcarpeta))
-                            .addGroup(jd_crear_carpetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jtxt_nombrecarpeta, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jLabel3)
+                    .addGroup(jd_crear_carpetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jd_crear_carpetaLayout.createSequentialGroup()
+                            .addComponent(btn_regresar2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_crearcarpeta))
+                        .addGroup(jd_crear_carpetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jtxt_nombrecarpeta, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jd_crear_carpetaLayout.setVerticalGroup(
@@ -191,6 +197,9 @@ public class frame1 extends javax.swing.JFrame {
         );
 
         jLabel2.setText("jLabel2");
+
+        jmi_agregararchivo.setText("jMenuItem1");
+        popupadd.add(jmi_agregararchivo);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -218,6 +227,14 @@ public class frame1 extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jl_dir);
 
         jl_archives.setModel(new DefaultListModel());
+        jl_archives.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_archivesMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jl_archivesMousePressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(jl_archives);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -259,6 +276,7 @@ public class frame1 extends javax.swing.JFrame {
 
     private void jl_dirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_dirMouseClicked
         DefaultListModel modelo = (DefaultListModel) jl_archives.getModel();
+        modelo.removeAllElements();
         if(jl_dir.getSelectedIndex()==0){
             System.out.println(0);
             for (int i = 0; i < Miunidad.size(); i++) {
@@ -329,6 +347,20 @@ public class frame1 extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Carpeta Creada");
     }//GEN-LAST:event_btn_crearcarpetaActionPerformed
 
+    private void jl_archivesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_archivesMouseClicked
+        jl_archives.getSelectedIndex();
+        
+    }//GEN-LAST:event_jl_archivesMouseClicked
+
+    private void jl_archivesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_archivesMousePressed
+        DefaultListModel modelo = (DefaultListModel) jl_archives.getModel(); 
+        if(evt.getButton()==3){
+            if(Miunidad.get(jl_archives.getSelectedIndex()) instanceof Carpeta){
+                popupadd.show(jl_dir, evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jl_archivesMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -383,6 +415,7 @@ public class frame1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JProgressBar jProgressBar3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -390,6 +423,7 @@ public class frame1 extends javax.swing.JFrame {
     private javax.swing.JDialog jd_creararchivo;
     private javax.swing.JList<String> jl_archives;
     private javax.swing.JList<String> jl_dir;
+    private javax.swing.JMenuItem jmi_agregararchivo;
     private javax.swing.JMenuItem jmi_creararchivo;
     private javax.swing.JMenuItem jmi_crearcarpeta;
     private javax.swing.JProgressBar jprogress1;
@@ -397,6 +431,7 @@ public class frame1 extends javax.swing.JFrame {
     private javax.swing.JSpinner js_tam;
     private javax.swing.JTextField jtxt_nombre;
     private javax.swing.JTextField jtxt_nombrecarpeta;
+    private javax.swing.JPopupMenu popupadd;
     private javax.swing.JPopupMenu popupmenu;
     // End of variables declaration//GEN-END:variables
 ArrayList Miunidad =new ArrayList();
