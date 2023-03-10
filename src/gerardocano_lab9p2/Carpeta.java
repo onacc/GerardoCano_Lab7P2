@@ -11,20 +11,36 @@ import java.util.ArrayList;
  * @author gcano
  */
 public class Carpeta {
-    private String nombrelink;
+    private String nombre,link;
     private ArrayList<Archivo> archives = new ArrayList();
     private ArrayList<Carpeta> carpetas = new ArrayList();
 
     public Carpeta(String nombrelink) {
-        this.nombrelink = nombrelink;
+        this.nombre = nombrelink;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getNombrelink() {
-        return nombrelink;
+        return nombre;
     }
 
     public void setNombrelink(String nombrelink) {
-        this.nombrelink = nombrelink;
+        this.nombre = nombrelink;
     }
 
     public ArrayList<Archivo> getArchives() {
@@ -45,7 +61,12 @@ public class Carpeta {
 
     @Override
     public String toString() {
-        return "Carpeta{" + "nombrelink=" + nombrelink + ", archives=" + archives + ", carpetas=" + carpetas + '}';
+        return   nombre+"/"+link +"/" + archives + "/" + carpetas ;
+    }
+
+    public Carpeta(String nombre, String link) {
+        this.nombre = nombre;
+        this.link = link;
     }
     
 }
