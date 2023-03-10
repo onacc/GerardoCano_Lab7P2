@@ -4,6 +4,7 @@
  */
 package gerardocano_lab9p2;
 
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
 /**
@@ -30,6 +31,9 @@ public class frame1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popupmenu = new javax.swing.JPopupMenu();
+        jmi_creararchivo = new javax.swing.JMenuItem();
+        jmi_crearcarpeta = new javax.swing.JMenuItem();
         jprogress2 = new javax.swing.JProgressBar();
         jProgressBar3 = new javax.swing.JProgressBar();
         jprogress1 = new javax.swing.JProgressBar();
@@ -38,12 +42,34 @@ public class frame1 extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jl_archives = new javax.swing.JList<>();
 
+        jmi_creararchivo.setText("Crear Archivo");
+        popupmenu.add(jmi_creararchivo);
+
+        jmi_crearcarpeta.setText("Crear Carpeta");
+        popupmenu.add(jmi_crearcarpeta);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jl_dir.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Mi Unidad", "Destacados", "Papelera" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
+        });
+        jl_dir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_dirMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jl_dirMousePressed(evt);
+            }
+        });
+        jl_dir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jl_dirKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jl_dirKeyReleased(evt);
+            }
         });
         jScrollPane1.setViewportView(jl_dir);
 
@@ -87,6 +113,35 @@ public class frame1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jl_dirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_dirMouseClicked
+        DefaultListModel modelo = (DefaultListModel) jl_archives.getModel();
+        if(jl_dir.getSelectedIndex()==0){
+            System.out.println(0);
+            for (int i = 0; i < carpetas.size(); i++) {
+                modelo.addElement(carpetas.get(i));
+            }
+            
+        }else if(jl_dir.getSelectedIndex()==1){
+            System.out.println(1);
+        }else if(jl_dir.getSelectedIndex()==2){
+            System.out.println(2);
+        }
+    }//GEN-LAST:event_jl_dirMouseClicked
+
+    private void jl_dirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jl_dirKeyPressed
+        
+    }//GEN-LAST:event_jl_dirKeyPressed
+
+    private void jl_dirKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jl_dirKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jl_dirKeyReleased
+
+    private void jl_dirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_dirMousePressed
+        if(evt.isPopupTrigger()){
+            popupmenu.show(jl_dir, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_jl_dirMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -128,7 +183,11 @@ public class frame1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> jl_archives;
     private javax.swing.JList<String> jl_dir;
+    private javax.swing.JMenuItem jmi_creararchivo;
+    private javax.swing.JMenuItem jmi_crearcarpeta;
     private javax.swing.JProgressBar jprogress1;
     private javax.swing.JProgressBar jprogress2;
+    private javax.swing.JPopupMenu popupmenu;
     // End of variables declaration//GEN-END:variables
+ArrayList<Carpeta> carpetas =new ArrayList();
 }
