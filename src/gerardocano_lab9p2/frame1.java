@@ -407,6 +407,7 @@ public class frame1 extends javax.swing.JFrame {
         jd_creararchivo.setVisible(false);
         jtxt_nombre.setText("");
         ab.setAvanzar(true);
+        
         JOptionPane.showMessageDialog(this, "Archivo Creado");
     }//GEN-LAST:event_btn_creararchivoActionPerformed
 
