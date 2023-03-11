@@ -10,7 +10,7 @@ import java.util.Random;
  *
  * @author gcano
  */
-public class Archivo {
+public class Archivo implements Seriazable {
     private String link, nombre, extension;
     private double tam;
 
@@ -57,7 +57,7 @@ public class Archivo {
 
     @Override
     public String toString() {
-        return  "/"+ nombre + "/" + extension + "" + link + "/" + tam +"MB"+"/";
+        return  "/"+ nombre + "/" + extension + "/" + link + "/" + tam +"MB"+"/";
     }
     
 }
