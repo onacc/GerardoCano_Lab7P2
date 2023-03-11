@@ -4,15 +4,17 @@
  */
 package gerardocano_lab9p2;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  *
  * @author gcano
  */
-public class Archivo implements Seriazable {
+public class Archivo implements Serializable {
     private String link, nombre, extension;
     private double tam;
+    private static final long SerialVersionUID=767L;
 
     public Archivo(String link, String nombre, String extension, double tam) {
         this.link = link;
