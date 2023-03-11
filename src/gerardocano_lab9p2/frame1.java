@@ -19,9 +19,11 @@ public class frame1 extends javax.swing.JFrame {
      * Creates new form frame1
      */
     public frame1() {
-        adminBarra barr = new adminBarra(jprogress1);
-        Thread process = new Thread(barr);
+        ab = new adminBarra(jprogress3);
+        Thread process1 = new Thread(ab);
+        process1.start();
         initComponents();
+        ab.start();
         pack();
         setLocationRelativeTo(null);
     }
@@ -65,7 +67,7 @@ public class frame1 extends javax.swing.JFrame {
         jl_archivos = new javax.swing.JList<>();
         jButton2 = new javax.swing.JButton();
         jprogress2 = new javax.swing.JProgressBar();
-        jProgressBar3 = new javax.swing.JProgressBar();
+        jprogress3 = new javax.swing.JProgressBar();
         jprogress1 = new javax.swing.JProgressBar();
         jScrollPane1 = new javax.swing.JScrollPane();
         jl_dir = new javax.swing.JList<>();
@@ -320,7 +322,7 @@ public class frame1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jprogress1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jprogress2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jprogress3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(78, 78, 78))
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
@@ -337,7 +339,7 @@ public class frame1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jprogress2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jprogress3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
@@ -404,6 +406,7 @@ public class frame1 extends javax.swing.JFrame {
         archives.add(nuevo);
         jd_creararchivo.setVisible(false);
         jtxt_nombre.setText("");
+        ab.setAvanzar(true);
         JOptionPane.showMessageDialog(this, "Archivo Creado");
     }//GEN-LAST:event_btn_creararchivoActionPerformed
 
@@ -426,6 +429,7 @@ public class frame1 extends javax.swing.JFrame {
         Miunidad.add(nueva);
         jd_crear_carpeta.setVisible(false);
         jtxt_nombrecarpeta.setText("");
+        
         JOptionPane.showMessageDialog(this, "Carpeta Creada");
     }//GEN-LAST:event_btn_crearcarpetaActionPerformed
 
@@ -529,7 +533,6 @@ public class frame1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JProgressBar jProgressBar3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -547,6 +550,7 @@ public class frame1 extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmi_papelera;
     private javax.swing.JProgressBar jprogress1;
     private javax.swing.JProgressBar jprogress2;
+    private javax.swing.JProgressBar jprogress3;
     private javax.swing.JSpinner js_tam;
     private javax.swing.JTextField jtxt_nombre;
     private javax.swing.JTextField jtxt_nombrecarpeta;
@@ -560,4 +564,5 @@ ArrayList<Archivo> archives = new ArrayList();
 //Archivo seleccionado;
 adminCarpeta AC = new adminCarpeta("./carpetas.cbm");
 adminArchivo AA = new adminArchivo("./archivos.cbm");
+adminBarra ab;
 }

@@ -359,7 +359,7 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jprogress1" min="-2" pref="500" max="-2" attributes="0"/>
                   <Component id="jprogress2" min="-2" pref="500" max="-2" attributes="0"/>
-                  <Component id="jProgressBar3" min="-2" pref="500" max="-2" attributes="0"/>
+                  <Component id="jprogress3" min="-2" pref="500" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
           </Group>
@@ -380,7 +380,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jprogress2" min="-2" pref="31" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jProgressBar3" min="-2" pref="31" max="-2" attributes="0"/>
+              <Component id="jprogress3" min="-2" pref="31" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jScrollPane1" pref="353" max="32767" attributes="0"/>
@@ -394,7 +394,7 @@
   <SubComponents>
     <Component class="javax.swing.JProgressBar" name="jprogress2">
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar3">
+    <Component class="javax.swing.JProgressBar" name="jprogress3">
     </Component>
     <Component class="javax.swing.JProgressBar" name="jprogress1">
     </Component>

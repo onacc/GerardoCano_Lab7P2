@@ -12,7 +12,7 @@ import javax.swing.JProgressBar;
  */
 public class adminBarra extends Thread {
     JProgressBar barra;
-    boolean avanzar;
+    boolean avanzar,vive;
 
     public JProgressBar getBarra() {
         return barra;
@@ -40,9 +40,8 @@ public class adminBarra extends Thread {
             if(avanzar){
                 barra.setValue(barra.getValue()+1);
                 if(barra.getValue()==100000000){
-                    //vive=false;
-                }                
-            } //FIN IF
+                    vive=false;
+                } }
             
             try {
                 Thread.sleep(0);
