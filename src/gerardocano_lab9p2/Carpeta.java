@@ -4,16 +4,18 @@
  */
 package gerardocano_lab9p2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author gcano
  */
-public class Carpeta {
+public class Carpeta implements Serializable {
     private String nombre,link;
     private ArrayList<Archivo> archives = new ArrayList();
     private ArrayList<Carpeta> carpetas = new ArrayList();
+    private static final long SerialVersionUID=765L;
 
     public Carpeta(String nombrelink) {
         this.nombre = nombrelink;

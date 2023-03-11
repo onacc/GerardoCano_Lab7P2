@@ -19,6 +19,8 @@ public class frame1 extends javax.swing.JFrame {
      * Creates new form frame1
      */
     public frame1() {
+        adminBarra barr = new adminBarra(jprogress1);
+        Thread process = new Thread(barr);
         initComponents();
         pack();
         setLocationRelativeTo(null);
@@ -555,5 +557,7 @@ ArrayList Miunidad =new ArrayList();
 ArrayList Destacados = new ArrayList();
 ArrayList papelera = new ArrayList();
 ArrayList<Archivo> archives = new ArrayList();
-Archivo seleccionado;
+//Archivo seleccionado;
+adminCarpeta AC = new adminCarpeta("./carpetas.cbm");
+adminArchivo AA = new adminArchivo("./archivos.cbm");
 }

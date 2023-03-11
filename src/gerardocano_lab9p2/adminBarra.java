@@ -13,9 +13,25 @@ import javax.swing.JProgressBar;
 public class adminBarra extends Thread {
     JProgressBar barra;
     boolean avanzar;
+
+    public JProgressBar getBarra() {
+        return barra;
+    }
+
+    public void setBarra(JProgressBar barra) {
+        this.barra = barra;
+    }
+
+    public boolean isAvanzar() {
+        return avanzar;
+    }
+
+    public void setAvanzar(boolean avanzar) {
+        this.avanzar = avanzar;
+    }
     
 
-    public adminBarra(JProgressBar barra, boolean avanzar) {
+    public adminBarra(JProgressBar barra) {
         this.barra = barra;
         this.avanzar = avanzar;
     }
